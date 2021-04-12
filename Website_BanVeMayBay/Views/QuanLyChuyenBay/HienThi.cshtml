@@ -1,0 +1,93 @@
+﻿@model Website_BanVeMayBay.Models.ChuyenBay
+
+@{
+    ViewBag.Title = "Hiển thị Chuyến bay";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Thông tin Chi tiết của Chuyến bay</h2>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+                @Html.DisplayNameFor(model => model.TenSach)
+            </dt>*@
+
+        @*<dd>
+                @Html.DisplayFor(model => model.TenSach)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhAnhAirline/"+Model.AnhBia)" width="100" height="150">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </dt>
+
+        <dd>
+            @string.Format("{0:0,0}", Model.GiaBan) vnđ
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaHangHangKhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HangHangKhong.TenHangHangKhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBayDi)
+        </dt>
+
+        <dd>
+            @ViewBag.SanBayDi
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBayDen)
+        </dt>
+
+        <dd>
+            @ViewBag.SanBayDen
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDi)
+        </dt>
+
+        <dd>
+            @Model.ThoiGianDi.Value.ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDen)
+        </dt>
+
+        <dd>
+            @Model.ThoiGianDen.Value.ToString("dd/MM/yyyy")
+        </dd>
+    </dl>
+</div>
+
+
+
+<p>
+    @Html.ActionLink("Sửa", "ChinhSua", new { @_MaChuyenBay = Model.MaChuyenBay }) |
+    @if (ViewBag.Quyen == 3)
+    {@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVNA")}
+else if (ViewBag.Quyen == 4)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVJ")}
+else if (ViewBag.Quyen == 5)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexJET")}
+else if (ViewBag.Quyen == 6)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexBAMBOO")}
+else
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "Index")}
+</p>

@@ -1,0 +1,35 @@
+﻿@model Website_BanVeMayBay.Models.HangHangKhong
+
+@{
+                /**/
+
+                ViewBag.Title = "Xóa Hãng hàng không";
+                Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa Hãng hàng không này chứ ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="width: 400px; padding-right: 50px">
+            @Html.DisplayNameFor(model => model.TenHangHangKhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHangHangKhong)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý Hãng hàng không", "Index")
+    </div>
+}

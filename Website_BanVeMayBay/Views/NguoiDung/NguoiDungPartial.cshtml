@@ -1,0 +1,50 @@
+﻿<a href="@Url.Action("HienThi", "NguoiDung", new { @_MaNguoiDung = @ViewBag.NguoiDung.MaNguoiDung })">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    @ViewBag.NguoiDung.HoTen
+</a>
+@if (ViewBag.NguoiDung.Quyen == 1)
+{
+    <a href="@Url.Action("Index","QuanLyChuyenBay")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản trị
+    </a>
+}
+@if (ViewBag.NguoiDung.Quyen == 2)
+{
+    <a href="@Url.Action("Index","QuanLyDonHang")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản lý đơn hàng
+    </a>
+}
+@if (ViewBag.NguoiDung.Quyen == 3)
+{
+    <a href="@Url.Action("IndexVNA","QuanLyChuyenBay")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản lý chuyến bay
+    </a>
+}
+@if (ViewBag.NguoiDung.Quyen == 4)
+{
+    <a href="@Url.Action("IndexVJ","QuanLyChuyenBay")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản lý chuyến bay
+    </a>
+}
+@if (ViewBag.NguoiDung.Quyen == 5)
+{
+    <a href="@Url.Action("IndexJET","QuanLyChuyenBay")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản lý chuyến bay
+    </a>
+}
+@if (ViewBag.NguoiDung.Quyen == 6)
+{
+    <a href="@Url.Action("IndexBAMBOO","QuanLyChuyenBay")">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        Quản lý chuyến bay
+    </a>
+}
+<a href="@Url.Action("DangXuat","NguoiDung")">
+    <i class="fa fa-sign-out" aria-hidden="true"></i>
+    Đăng xuất
+</a>

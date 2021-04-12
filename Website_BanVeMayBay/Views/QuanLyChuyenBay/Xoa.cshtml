@@ -1,0 +1,106 @@
+﻿@model Website_BanVeMayBay.Models.ChuyenBay
+
+@{
+    /**/
+
+    ViewBag.Title = "Xóa Chuyến bay";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa Chuyến bay này chứ ?</h3>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhBia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaHangHangKhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HangHangKhong.TenHangHangKhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoTheDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoTheDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBayDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBayDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBayDen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBayDen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDi)
+        </dt>
+
+        <dd>
+            @Model.ThoiGianDi.Value.ToString("dd/MM/yyyy"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDen)
+        </dt>
+
+        <dd>
+            @Model.ThoiGianDen.Value.ToString("dd/MM/yyyy"))
+        </dd>
+
+
+
+    </dl>
+</div>
+
+<img src="@Url.Content("~/HinhAnhAirline/"+Model.AnhBia)" width="500" height="750">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+    @if (ViewBag.Quyen == 3)
+    {@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVNA")}
+else if (ViewBag.Quyen == 4)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVJ")}
+else if (ViewBag.Quyen == 5)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexJET")}
+else if (ViewBag.Quyen == 6)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexBAMBOO")}
+else
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "Index")}
+</div>
+}

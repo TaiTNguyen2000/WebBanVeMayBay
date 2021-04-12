@@ -1,0 +1,123 @@
+﻿@model Website_BanVeMayBay.Models.NguoiDung
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    /**/
+
+    ViewBag.Title = "Hiện Thông tin";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+
+<div id="KhachHang">
+    <h2>Thông tin Chi tiết Khách hàng</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        @if (ViewBag.GioiTinh == 0)
+        {
+            <dd>
+                Nam
+            </dd>
+        }
+        @if (ViewBag.GioiTinh == 1)
+        {
+            <dd>
+                Nữ
+            </dd>
+        }
+        else
+        {
+            <dd>
+                Khác
+            </dd>
+        }
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quyen)
+        </dt>
+        @if (Model.Quyen == 1)
+        {
+            <dd>Admin</dd>
+        }
+        else if (Model.Quyen == 2)
+        {
+            <dd>Nhân viên</dd>
+        }
+        else if (Model.Quyen == 3)
+        {
+            <dd>Vietnam Airlines</dd>
+        }
+        else if (Model.Quyen == 4)
+        {
+            <dd>Vietjet Air</dd>
+        }
+        else if (Model.Quyen == 5)
+        {
+            <dd>Jetstar Pacifics</dd>
+        }
+        else if (Model.Quyen == 6)
+        {
+            <dd>Bamboo Airways</dd>
+        }
+        else
+        {
+            <dd>Khách hàng</dd>
+        }
+
+    </dl>
+    <p id="TroLai">
+        @Html.ActionLink("Sửa", "ChinhSua", new { @_MaNguoiDung = Model.MaNguoiDung }) |
+        <a href="@Url.Action("Index","Home")">Trở lại Trang chủ</a>
+    </p>
+</div>

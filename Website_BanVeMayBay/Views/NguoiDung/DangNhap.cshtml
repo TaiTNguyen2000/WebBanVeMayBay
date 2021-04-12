@@ -1,0 +1,20 @@
+﻿<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+                /**/
+
+                ViewBag.Title = "Đăng nhập";
+                Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div id="KhachHang">
+    <h2>Đăng nhập</h2>
+    <h3 id="CanhBao">@ViewBag.ThongBao</h3>
+    @using (Html.BeginForm("DangNhap", "NguoiDung", FormMethod.Post))
+    {
+        <span>Tài khoản</span><br />
+        @Html.TextBox("txtTaiKhoan");<br />
+        <span>Mật khẩu</span><br />
+        @Html.Password("txtMatKhau");<br />
+        <input type="submit" style="background-color:green;color:white;cursor:pointer;" id="btnSubmit" name="btnSubmit" value="Đăng nhập" />
+    }
+</div>
+

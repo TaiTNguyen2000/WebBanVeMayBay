@@ -1,0 +1,35 @@
+﻿@using Website_BanVeMayBay.Models;
+@model List<SanBay>
+@*<h1 style="color:red;font-weight:bold;">Nhà xuất bản</h1>*@
+@using (Html.BeginForm("KetQuaTimKiemSB", "TimKiem", FormMethod.Post))
+{
+    <div style="display: flex; justify-content: center">
+        @Html.Label("Chọn sân bay đi")
+        <select style="margin: 0 20px" name="cmbTimKiemDi">
+            @{int i = 0;
+            }
+            @foreach (var item in Model)
+            {
+                i++;
+                <option value=@i>@item.TenSanBay</option>
+            }
+        </select>
+        @Html.Label("Chọn sân bay đến")
+        <select style="margin: 0 20px" name="cmbTimKiemDen">
+            @{i = 0;
+            }
+            @foreach (var item in Model)
+            {
+                i++;
+                <option value=@i>@item.TenSanBay</option>
+            }
+        </select>
+    </div>
+    @Html.Label("Nhập ngày đi: Định dạng: ngày/tháng/năm")
+    @Html.TextBox("txtNgayDi", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "dd/MM/YYYY" })
+    @*@Html.Label("Nhập ngày đi: Định dạng: ngày/tháng/năm")
+        @Html.TextBox("txtNgayDen", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "dd/MM/YYYY" })*@
+    <div id="divHinhAnhTimKiem">
+        <button style="margin: 20px 0" type="submit"><img src="~/HinhAnh/Search2.png"></button>
+    </div>
+}

@@ -1,0 +1,49 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Website_BanVeMayBay.Models.HangHangKhong>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Quản lý Hãng hàng không";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm mới Hãng hàng không", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenHangHangKhong)
+        </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHangHangKhong)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaHangHangKhong = item.MaHangHangKhong })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaHangHangKhong = item.MaHangHangKhong })
+            </td>
+        </tr>
+    }
+
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLyHangHangKhong", new { _Page = page }))
+</div>

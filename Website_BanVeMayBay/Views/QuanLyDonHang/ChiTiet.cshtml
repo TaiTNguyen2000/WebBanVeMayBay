@@ -1,0 +1,53 @@
+﻿@model Website_BanVeMayBay.Models.ChiTietDonHang
+
+@{
+    ViewBag.Title = "Hiển thị Chi tiết đơn hàng";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Thông tin Chi tiết của Đơn hàng</h2>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDonHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDonHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaChuyenBay)
+            @Html.ActionLink("Sửa", "ChinhSuaMaChuyenBay", new { @_MaDonHang = Model.MaDonHang })
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @string.Format("{0:0,0}", Model.DonGia) vnđ
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Sửa", "ChinhSua", new { @_MaDonHang = Model.MaDonHang }) |
+    @Html.ActionLink("Trở lại Trang Quản lý Đơn hàng", "Index")
+</p>
+

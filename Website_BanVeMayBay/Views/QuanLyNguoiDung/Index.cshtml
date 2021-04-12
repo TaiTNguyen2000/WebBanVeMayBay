@@ -1,0 +1,132 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Website_BanVeMayBay.Models.NguoiDung>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Quản lý Người dùng";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaNguoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TaiKhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Quyen)
+        </th>
+        <th>
+            Chi tiết
+        </th>
+        @if (ViewBag.Quyen == 1)
+        {
+            <th>
+                Phân quyền
+            </th>
+            <th>
+                Xóa
+            </th>
+        }
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh)
+        </td>
+        @if (item.Quyen == 1)
+        {
+            <td>Admin</td>
+        }
+        else if (item.Quyen == 2)
+        {
+            <td>Nhân viên</td>
+        }
+        else if (item.Quyen == 3)
+        {
+            <td>Vietnam Airlines</td>
+        }
+        else if (item.Quyen == 4)
+        {
+            <td>Vietjet Air</td>
+        }
+        else if (item.Quyen == 5)
+        {
+            <td>Jetstar Pacifics</td>
+        }
+        else if (item.Quyen == 6)
+        {
+            <td>Bamboo Airways</td>
+        }
+        else
+        {
+            <td>Khách hàng</td>
+        }
+        <td>
+            @Html.ActionLink("Chi tiết", "HienThi", new { @_MaNguoiDung = item.MaNguoiDung })
+        </td>
+        @if (ViewBag.Quyen == 1)
+        {
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaNguoiDung = item.MaNguoiDung })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaNguoiDung = item.MaNguoiDung })
+            </td>
+        }
+
+    </tr>
+    }
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLyNguoiDung", new { _Page = page }))
+</div>

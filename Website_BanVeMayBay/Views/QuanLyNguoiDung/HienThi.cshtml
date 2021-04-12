@@ -1,0 +1,122 @@
+﻿@model Website_BanVeMayBay.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Hiển thị Người dùng";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Thông tin Chi tiết Người dùng</h2>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        @if (Model.GioiTinh == 0)
+        {
+            <dd>
+                Nam
+            </dd>
+        }
+        else if (Model.GioiTinh == 1)
+        {
+            <dd>
+                Nữ
+            </dd>
+        }
+        else
+        {
+            <dd>
+                Khác
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quyen)
+        </dt>
+
+        @if (Model.Quyen == 1)
+        {
+            <dd>Admin</dd>
+        }
+        else if (Model.Quyen == 2)
+        {
+            <dd>Nhân viên</dd>
+        }
+        else if (Model.Quyen == 3)
+        {
+            <dd>VNA</dd>
+        }
+        else if (Model.Quyen == 4)
+        {
+            <dd>VJ</dd>
+        }
+        else if (Model.Quyen == 5)
+        {
+            <dd>JETSTAR</dd>
+        }
+        else if (Model.Quyen == 6)
+        {
+            <dd>Bamboo</dd>
+        }
+        else
+        {
+            <dd>Khách hàng</dd>
+        }
+    </dl>
+</div>
+@if (ViewBag.Quyen == 1)
+{
+    <p>
+        @Html.ActionLink("Sửa", "ChinhSua", new { @_MaNguoiDung = Model.MaNguoiDung }) |
+        @Html.ActionLink("Trở lại Trang Quản lý Khách hàng", "Index")
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Trở lại Trang Quản lý Khách hàng", "Index")
+    </p>
+}

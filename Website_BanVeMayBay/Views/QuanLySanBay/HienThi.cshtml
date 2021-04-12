@@ -1,0 +1,26 @@
+﻿@model Website_BanVeMayBay.Models.SanBay
+
+@{
+    ViewBag.Title = "Hiển thị Sân bay";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Thông tin Chi tiết của Sân bay</h2>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanBay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "ChinhSua", new { @_MaSanBay = Model.MaSanBay }) |
+    @Html.ActionLink("Trở lại Trang Quản lý Nhà xuất bản", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿@using Website_BanVeMayBay.Models
+@model ChuyenBay
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Chi tiết Sách";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+@section NoiDungBenPhai{
+    <div id="HinhAnh"><img src="@Url.Content("~/HinhAnhAirline/" + Model.AnhBia)" width="100" height="150">
+        </div>
+    <div id="ThongTin">
+        <div id="TieuDe">Hãng hàng không:</div>
+        <div id="ChuDe">@ViewBag.TenHangHangKhong</div>
+        <div id="TieuDe">Sân bay đi:</div>
+        <div id="SanBayDi">@ViewBag.SanBayDi</div>
+        <div id="TieuDe">Sân bay đến:</div>
+        <div id="SanBayDen">@ViewBag.SanBayDen</div>
+        <div id="TieuDe">Thời gian đi:</div>
+        <div id="ThoiGianDi">@Model.ThoiGianDi.Value.ToString("dd/MM/yyyy")</div>
+        <div id="TieuDe">Thời gian đến:</div>
+        <div id="ThoiGianDen">@Model.ThoiGianDen.Value.ToString("dd/MM/yyyy")</div>
+        <div id="Gia">
+            <span id="TieuDe">Đơn giá: </span>
+            <span id="Gia">@string.Format("{0:0,0}", @Model.GiaBan) vnđ</span>
+        </div>
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @__MaChuyenBay = Model.MaChuyenBay, @strURL = Request.Url.ToString() }))
+        {
+            <input type="submit" style="cursor:pointer" value="Đặt vé &#xf07a;" id="btnGioHang" class="btn btn-primary">
+        }
+    </div>
+    <div style="clear:both"></div>
+}
