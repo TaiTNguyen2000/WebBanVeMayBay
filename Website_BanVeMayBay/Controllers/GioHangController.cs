@@ -38,12 +38,13 @@ namespace Website_BanVeMayBay.Controllers
             {
                 _GioHang = new GioHang(__MaChuyenBay);
                 lstGioHang.Add(_GioHang);
-                return Redirect(strURL);
+                return RedirectToAction("Index", "Home");
+                //return Redirect(strURL);
             }
             else
             {
                     _GioHang._SoLuong++;
-                return Redirect(strURL);
+                return RedirectToAction("Index", "Home");
             }
         }
 

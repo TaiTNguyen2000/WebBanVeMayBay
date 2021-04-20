@@ -217,10 +217,10 @@
     <Content Include="HinhAnhAirline\JET.jpg" />
     <Content Include="HinhAnhAirline\VJ.jpg" />
     <Content Include="HinhAnhAirline\VNA.jpg" />
+    <Content Include="HinhAnh\Anh1.jpg" />
     <Content Include="HinhAnh\Anh4.jpg" />
     <Content Include="HinhAnh\Search.png" />
     <Content Include="HinhAnh\Search2.png" />
-    <Content Include="HinhAnh\Anh1.jpg" />
     <Content Include="HinhAnh\Anh2.jpg" />
     <Content Include="HinhAnh\Anh3.jpg" />
     <Content Include="NivoSlider\jquery.nivo.slider.js" />
