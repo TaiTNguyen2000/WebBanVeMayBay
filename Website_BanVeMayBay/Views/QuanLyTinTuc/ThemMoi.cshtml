@@ -1,0 +1,80 @@
+﻿@model Website_BanVeMayBay.Models.TinTuc
+
+
+@{
+    ViewBag.Title = "Thêm mới Tin tức";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<script src="~/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("ThemMoi", "QuanLyTinTuc", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="FileUpload" />
+                @Html.ValidationMessageFor(model => model.Hinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TieuDe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TieuDe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TieuDe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TomTat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TomTat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TomTat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="margin-top:30px">
+                @Html.TextAreaFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" }, id = "txtNoiDung" })
+                @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                <script>
+                    CKEDITOR.replace('txtNoiDung');
+                </script>
+
+
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input style="background-color:green;" type="submit" value="Thêm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="text-align:left; color:red;">
+    @if (ViewBag.Quyen == 3)
+    {@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVNA")}
+else if (ViewBag.Quyen == 4)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexVJ")}
+else if (ViewBag.Quyen == 5)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexJET")}
+else if (ViewBag.Quyen == 6)
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "IndexBAMBOO")}
+else
+{@Html.ActionLink("Trở lại Trang Quản lý Chuyến bay", "Index")}
+</div>
+
+

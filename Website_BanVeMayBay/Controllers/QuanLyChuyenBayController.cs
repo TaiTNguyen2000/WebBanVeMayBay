@@ -21,7 +21,6 @@ namespace Website_BanVeMayBay.Controllers
             ViewBag.Quyen = user.Quyen;
             int PageNumber = (_Page ?? 1);
             int PageSize = 10;
-            List<ChuyenBay> lstCB = db.ChuyenBays.ToList().OrderBy(n => n.MaChuyenBay).ToList();
             return View(db.ChuyenBays.ToList().OrderBy(n => n.MaChuyenBay).ToPagedList(PageNumber, PageSize));
         }
 

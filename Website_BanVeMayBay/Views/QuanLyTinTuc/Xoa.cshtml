@@ -1,0 +1,62 @@
+﻿@model Website_BanVeMayBay.Models.TinTuc
+
+
+@{
+    /**/
+
+    ViewBag.Title = "Xóa Tin Tức";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa Tin tức này chứ ?</h3>
+
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TomTat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TomTat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        
+{@Html.ActionLink("Trở lại Trang Quản lý Tin tức", "Index")}
+    </div>
+}

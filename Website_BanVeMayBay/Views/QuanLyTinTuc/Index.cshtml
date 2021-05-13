@@ -1,0 +1,62 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Website_BanVeMayBay.Models.TinTuc>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Quản lý Tin tức";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm mới Tin tức", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TieuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TomTat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NoiDung)
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div id="HinhAnh"><img src="@Url.Content("~/HinhAnh/"+item.Hinh)" width="100" height="150"></div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TomTat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaTinTuc = item.MaTinTuc })
+            </td>
+        </tr>
+    }
+
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLyTinTuc", new { _Page = page }))
+</div>
+

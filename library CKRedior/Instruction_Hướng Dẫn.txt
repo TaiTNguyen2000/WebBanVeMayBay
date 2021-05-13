@@ -1,0 +1,15 @@
+         // use  library CKRedior
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET"  TagPrefix="CKEditor" %>
+
+
+         // Use Upload magie on website
+
+<%@ Register Assembly="CKFinder" Namespace="CKFinder"  TagPrefix="CKFinder" %>
+
+
+          // use  library CKRedior on Sql Sever
+
+   <CKEditor:CKEditorControl  ID="CKEditorControl1" runat="server" Text='<%# Bind("content") %>' ></CKEditor:CKEditorControl>
+
+
+       // Thanks for wathching!!

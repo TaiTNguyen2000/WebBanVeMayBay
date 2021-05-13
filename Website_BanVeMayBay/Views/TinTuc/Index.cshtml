@@ -1,0 +1,41 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@model IPagedList<Website_BanVeMayBay.Models.TinTuc>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+
+<h2>Tin tức</h2>
+
+
+<div class="row">
+    <div class="col-12">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        @foreach (var item in Model)
+                        {
+                        <div style="display: flex; ">
+                            <div class="" style="height:auto">
+                                <a href="@Url.Action("XemTinTuc", "TinTuc", new { @_MaTinTuc = item.MaTinTuc })">
+                                    <img src="@Url.Content("~/HinhAnh/"+item.Hinh)" width="100" height="100" alt=""/>
+                                </a>
+                            </div>
+                            <div style="margin-left: 15px">
+                                    <h5> <a href="@Url.Action("XemTinTuc", "TinTuc", new { @_MaTinTuc = item.MaTinTuc })">@item.TieuDe</a></h5>
+                                    <p>@item.TomTat</p>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

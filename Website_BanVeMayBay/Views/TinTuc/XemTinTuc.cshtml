@@ -1,0 +1,15 @@
+﻿@model Website_BanVeMayBay.Models.TinTuc
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+    <div style="width: 100%; text-align:center">
+        <img src="@Url.Content("~/HinhAnh/" + Model.Hinh)" width="300" height="300">
+        <div><h2 style="color: red">@Model.TieuDe</h2></div>
+        <div>@Html.Raw(Model.NoiDung)</div>
+    </div>
+    
+    <div style="clear:both"></div>
+

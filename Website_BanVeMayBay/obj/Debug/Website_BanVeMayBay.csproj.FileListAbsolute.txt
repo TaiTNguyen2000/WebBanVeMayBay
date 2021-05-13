@@ -107,3 +107,6 @@ C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\obj\Debug\Website_
 C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\obj\Debug\Website_BanVeMayBay.csproj.CopyComplete
 C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\obj\Debug\Website_BanVeMayBay.dll
 C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\obj\Debug\Website_BanVeMayBay.pdb
+C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\bin\CKEditor.NET.dll
+C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\bin\CKFinder.dll
+C:\Users\acer\Desktop\Website_BanVeMayBay\Website_BanVeMayBay\bin\CKFinder.pdb

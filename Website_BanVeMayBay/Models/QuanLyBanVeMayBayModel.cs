@@ -20,6 +20,7 @@ namespace Website_BanVeMayBay.Models
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
         public virtual DbSet<SanBay> SanBays { get; set; }
         public virtual DbSet<ChuyenBay> ChuyenBays { get; set; }
+        public virtual DbSet<TinTuc> TinTucs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

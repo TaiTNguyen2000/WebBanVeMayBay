@@ -21,64 +21,29 @@
                 </div>
                 @if ((Session["TaiKhoan"] == null) || (Session["TaiKhoan"].ToString() == ""))
                 {
-                    <div class="DangKyDangNhap">
-                        @Html.Action("GioHangPartial", "GioHang")
-                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                        <a href="@Url.Action("DangKy","NguoiDung")">Đăng ký</a>
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        <a href="@Url.Action("DangNhap","NguoiDung")">Đăng nhập</a>
-                    </div>
+                <div class="DangKyDangNhap">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    <a href="@Url.Action("Index","TinTuc")">Tin tức</a>
+                    @Html.Action("GioHangPartial", "GioHang")
+                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                    <a href="@Url.Action("DangKy","NguoiDung")">Đăng ký</a>
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <a href="@Url.Action("DangNhap","NguoiDung")">Đăng nhập</a>
+                </div>
                 }
                 else
                 {
-                    <div class="DangKyDangNhap">
-                        @Html.Action("GioHangPartial", "GioHang")
-                        @Html.Action("NguoiDungPartial", "NguoiDung")
-                    </div>
+                <div class="DangKyDangNhap">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    <a href="@Url.Action("Index","TinTuc")">Tin tức</a>
+                    @Html.Action("GioHangPartial", "GioHang")
+                    @Html.Action("NguoiDungPartial", "NguoiDung")
+                </div>
                 }
             </div>
-
-            @*<div class="flash success" id="divDanhMuc">
-                    <div id="txtTimKiem">
-                        @using (Html.BeginForm("KetQuaTimKiem","TimKiem",FormMethod.Post))
-                        {
-                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class="TextBoxTimKiem",@placeholder="Nhập vào từ khóa cần tìm ..."})
-                            <div id="divHinhAnhTimKiem">
-                                <button type="submit"><img src="~/HinhAnh/Search2.png"></button>
-                            </div>
-                        }
-                    </div>
-                    <ul class="navMenu">
-                        <li>
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <a href="@Url.Action("Index","Home")">Trang chủ</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            <a href="#">Liên hệ</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            <a href="#">Hướng dẫn</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-info" aria-hidden="true"></i>
-                            <a href="#">Giới thiệu</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            <a href="#">Tuyển dụng</a>
-                        </li>
-                    </ul>
-                </div>*@
         </section>
 
         <section>
-            @*<div id="divMenuLeft">
-                    <div class="activity">
-                        @Html.Action("SachMoiPartial","Sach")
-                    </div>
-                </div>*@
             <div style="width: 100%;" id="slider" class="nivoSlider">
                 <img style="width: 100%" src="~/HinhAnh/Anh1.jpg" />
             </div>
@@ -89,7 +54,7 @@
             @RenderBody()
         </div>
 
-        <section>
+        <section style="height: 300px">
             <div style="text-align:center" class="container body-content">
                 <div class="item-info">
                     @Html.Action("SanBayPartial", "SanBay")
