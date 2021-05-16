@@ -31,7 +31,4 @@ Installation guide:
 
 Demo:
 
-```
-[![Live demo](https://img.youtube.com/vi/_0FVZAoYgj0/0.jpg)](https://www.youtube.com/watch?v=_0FVZAoYgj0)
-
-```
+[![Live demo](http://img.youtube.com/vi/_0FVZAoYgj0/0.jpg)](http://www.youtube.com/watch?v=_0FVZAoYgj0 'Live demo')
