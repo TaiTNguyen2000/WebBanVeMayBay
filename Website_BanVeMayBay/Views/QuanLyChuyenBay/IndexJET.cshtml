@@ -48,38 +48,45 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                <div id="HinhAnh"><img src="@Url.Content("~/HinhAnhAirline/"+item.AnhBia)" width="100" height="150"></div>
-            </td>
-            <td>
-                @string.Format("{0:0,0}", item.GiaBan) vnđ
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HangHangKhong.TenHangHangKhong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanBayDi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanBayDen)
-            </td>
-            <td>
-                @item.ThoiGianDi.Value.ToString("dd/MM/yyyy")
-            </td>
+    <tr>
+        <td>
+            <div id="HinhAnh"><img src="@Url.Content("~/HinhAnhAirline/"+item.AnhBia)" width="100" height="150"></div>
+        </td>
+        <td>
+            @string.Format("{0:0,0}", item.GiaBan) vnđ
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HangHangKhong.TenHangHangKhong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanBayDi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanBayDen)
+        </td>
+        <td>
+            @item.ThoiGianDi.Value.ToString("dd/MM/yyyy")
+        </td>
+        @if (item.ThoiGianDen != null)
+        {
             <td>
                 @item.ThoiGianDen.Value.ToString("dd/MM/yyyy")
             </td>
-            <td>
-                @Html.ActionLink("Chi tiết", "HienThi", new { @_MaChuyenBay = item.MaChuyenBay })
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaChuyenBay = item.MaChuyenBay })
-            </td>
-            <td>
-                @Html.ActionLink("Xóa", "Xoa", new { @_MaChuyenBay = item.MaChuyenBay })
-            </td>
-        </tr>
+        }
+        else
+        {
+            <td></td>
+        }
+        <td>
+            @Html.ActionLink("Chi tiết", "HienThi", new { @_MaChuyenBay = item.MaChuyenBay })
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "ChinhSua", new { @_MaChuyenBay = item.MaChuyenBay })
+        </td>
+        <td>
+            @Html.ActionLink("Xóa", "Xoa", new { @_MaChuyenBay = item.MaChuyenBay })
+        </td>
+    </tr>
     }
 
 </table>

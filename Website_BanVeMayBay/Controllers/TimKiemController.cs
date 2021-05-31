@@ -22,9 +22,22 @@ namespace Website_BanVeMayBay.Controllers
             int TuKhoa2 = int.Parse(fc["cmbTimKiemDen"]);
             ViewBag.TuKhoa2 = TuKhoa2;
             DateTime NgayDi = DateTime.ParseExact(fc["txtNgayDi"], "dd/MM/yyyy", null);
-            List<ChuyenBay> lstCB = db.ChuyenBays.Where(n => n.SanBayDi == (TuKhoa1) && n.SanBayDen == (TuKhoa2)
-            && n.ThoiGianDi == NgayDi
-            && n.CoTheDat > 0).ToList();
+            List<ChuyenBay> lstCB = null;
+            if (fc["txtNgayVe"] != "")
+            {
+                DateTime NgayVe = DateTime.ParseExact(fc["txtNgayVe"], "dd/MM/yyyy", null);
+                lstCB = db.ChuyenBays.Where(n => n.SanBayDi == (TuKhoa1) && n.SanBayDen == (TuKhoa2)
+                && n.ThoiGianDi == NgayDi
+                && n.ThoiGianDen == NgayVe
+                && n.LoaiChuyenBay == 1
+                && n.CoTheDat > 0).ToList();
+            } else
+            {
+                lstCB = db.ChuyenBays.Where(n => n.SanBayDi == (TuKhoa1) && n.SanBayDen == (TuKhoa2)
+                && n.ThoiGianDi == NgayDi
+                && n.LoaiChuyenBay == 0
+                && n.CoTheDat > 0).ToList();
+            }
             int pageNumber = (_Page ?? 1);
             int pageSize = 9;
             if (lstCB.Count == 0)

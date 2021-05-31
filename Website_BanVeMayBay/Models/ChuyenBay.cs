@@ -41,13 +41,15 @@ namespace Website_BanVeMayBay.Models
         [DataType(DataType.Date)]
         public DateTime? ThoiGianDi { get; set; }
 
-        [Display(Name = "Thời gian đến")]
+        [Display(Name = "Thời gian về")]
         [DataType(DataType.Date)]
         public DateTime? ThoiGianDen { get; set; }
 
         [Display(Name = "Hãng hàng không")]
         public int? MaHangHangKhong { get; set; }
-        
+
+        [Display(Name = "Loại vé")]
+        public int? LoaiChuyenBay { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }

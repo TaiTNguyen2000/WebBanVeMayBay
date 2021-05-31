@@ -22,8 +22,11 @@ namespace Website_BanVeMayBay.Models
             [DisplayFormat(DataFormatString = "{0:#,##0 vnđ}")]
             public int? DonGia { get; set; }
 
-            [Display(Name = "Số lượng")]
-            public int? SoLuong { get; set; }
+            [Display(Name = "Số lượng người lớn")]
+            public int? SoLuongNguoiLon { get; set; }
+
+            [Display(Name = "Số lượng trẻ em")]
+            public int? SoLuongTreEm { get; set; }
 
             [Display(Name = "Mã chuyến bay")]
             public int? MaChuyenBay { get; set; }

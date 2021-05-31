@@ -2,7 +2,7 @@
 @model ChuyenBay
 <link href="~/Content/TrangChuCss.css" rel="stylesheet" />
 @{
-    ViewBag.Title = "Chi tiết Sách";
+    ViewBag.Title = "Chi tiết Chuyến bay";
     Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
 }
 @section NoiDungBenPhai{
@@ -17,8 +17,21 @@
         <div id="SanBayDen">@ViewBag.SanBayDen</div>
         <div id="TieuDe">Thời gian đi:</div>
         <div id="ThoiGianDi">@Model.ThoiGianDi.Value.ToString("dd/MM/yyyy")</div>
-        <div id="TieuDe">Thời gian đến:</div>
-        <div id="ThoiGianDen">@Model.ThoiGianDen.Value.ToString("dd/MM/yyyy")</div>
+        @if (ViewBag.LoaiVe == 1)
+        {
+            <div id="TieuDe">Thời gian đến:</div>
+            <div id="ThoiGianDen">@Model.ThoiGianDen.Value.ToString("dd/MM/yyyy")</div>
+        }
+        <div id="TieuDe">Loại vé:</div>
+        @if (Model.LoaiChuyenBay == 0)
+        {
+            <div>Một chiều</div>
+        }
+        else
+        {
+            <div>Khứ hồi</div>
+        }
+
         <div id="Gia">
             <span id="TieuDe">Đơn giá: </span>
             <span id="Gia">@string.Format("{0:0,0}", @Model.GiaBan) vnđ</span>

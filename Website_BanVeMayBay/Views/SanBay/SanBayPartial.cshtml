@@ -29,10 +29,31 @@
         </div>
         @Html.Label("Nhập ngày đi: Định dạng: ngày/tháng/năm")
         @Html.TextBox("txtNgayDi", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "dd/MM/YYYY" })
-        @*@Html.Label("Nhập ngày đi: Định dạng: ngày/tháng/năm")
-            @Html.TextBox("txtNgayDen", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "dd/MM/YYYY" })*@
+        <div id="divNgayVe" style="display: none ">
+            @Html.Label("Nhập ngày về: Định dạng: ngày/tháng/năm")
+            @Html.TextBox("txtNgayVe", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "dd/MM/YYYY" })
+        </div>
+        <div>
+            <input type="radio" id="motchieu" name="loaive" checked="checked" value="motchieu">
+            <label for="motchieu">Một chiều</label><br>
+            <input type="radio" id="khuhoi" name="loaive" value="khuhoi">
+            <label for="khuhoi">Khứ hồi</label><br>
+        </div>
         <div id="divHinhAnhTimKiem">
             <button style="margin: 20px 0" type="submit"><img src="~/HinhAnh/Search2.png"></button>
         </div>
     }
 </div>
+
+<script>
+    var radios = document.querySelectorAll('input[type=radio]');
+    var divNgayVe = document.querySelector('#divNgayVe');
+    for (var i = 0, max = radios.length; i < max; i++) {
+        radios[i].onclick = function () {
+            if (this.value === 'khuhoi')
+                divNgayVe.style.display = 'inline';
+            else
+                divNgayVe.style.display = 'none';
+        }
+    }
+</script>

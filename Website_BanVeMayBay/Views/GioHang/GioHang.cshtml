@@ -11,24 +11,33 @@
         <table border="1" cellpadding="2" cellspacing="15" width="1000" height="400">
             <tr>
                 @*<td>Tên sách</td>
-                    <td>Ảnh bìa</td>*@
+        <td>Ảnh bìa</td>*@
                 <td id="TenCot">Đơn giá</td>
-                <td id="TenCot">Số người đi</td>
+                <td id="TenCot">Số người lớn</td>
+                <td id="TenCot">Số trẻ em</td>
                 <td id="TenCot">Thành tiền</td>
                 <td id="TenCot">Ngày đi</td>
-                <td id="TenCot">Ngày đến</td>
+                <td id="TenCot">Ngày về</td>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    @*<td>@item._TenSach</td>
-                        <td><a href="@Url.Action("XemChiTiet", "Sach", new { @_MaSach=item._MaSach})"><img src="@Url.Content("~/HinhAnhAirline/"+@item._AnhBia)" width="100" height="150" /></a></td>*@
-                    <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
-                    <td id="ChuSo"><a href="@Url.Action("SuaGioHang","GioHang")">@item._SoLuong (Nhấn vào để sửa)</a></td>
-                    <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
-                    <td id="ChuSo">@item._NgayDi.Value.ToString("dd/MM/yyyy")</td>
+            <tr>
+                @*<td>@item._TenSach</td>
+        <td><a href="@Url.Action("XemChiTiet", "Sach", new { @_MaSach=item._MaSach})"><img src="@Url.Content("~/HinhAnhAirline/"+@item._AnhBia)" width="100" height="150" /></a></td>*@
+                <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+                <td id="ChuSo"><a href="@Url.Action("SuaGioHang","GioHang")">@item._SoLuongNguoiLon (Nhấn vào để sửa)</a></td>
+                <td id="ChuSo"><a href="@Url.Action("SuaGioHang","GioHang")">@item._SoLuongTreEm (Nhấn vào để sửa)</a></td>
+                <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                <td id="ChuSo">@item._NgayDi.Value.ToString("dd/MM/yyyy")</td>
+                @if (item._NgayDen == null)
+                {
+                    <td id="ChuSo"></td>
+                }
+                else
+                {
                     <td id="ChuSo">@item._NgayDen.Value.ToString("dd/MM/yyyy")</td>
-                </tr>
+                }
+            </tr>
             }
             <tr>
                 <td colspan="6" id="ChuSo">

@@ -11,29 +11,31 @@
     <table border="1" cellpadding="2" cellspacing="15" width="1000" height="400">
         <tr>
             <td id="TenCot">Đơn giá</td>
-            <td style="text-align:center;">Số lượng</td>
+            <td style="text-align:center;">Số lượng người lớn</td>
+            <td style="text-align:center;">Số lượng trẻ em</td>
             <td id="TenCot">Thành tiền</td>
             <td id="TenCot">Cập nhật</td>
             <td id="TenCot">Xóa</td>
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
-                <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
-                @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @__MaChuyenBay = item._MaChuyenBay }))
-                {
+        <tr>
+            <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @__MaChuyenBay = item._MaChuyenBay }))
+            {
 
-                    <td id="ChuSo">@Html.TextBox("txtSoLuong", @item._SoLuong)</td>
-                    <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
-                    <td id="TenCot">
-                        <input type="submit" style="background-color:green;color:white;cursor:pointer" value="Cập nhật" /><br />
-                    </td>
-                    <td id="TenCot" style="color:red;">
-                        @Html.ActionLink("Xóa", "XoaGioHang", new { @__MaChuyenBay = item._MaChuyenBay })
-                    </td>
+                <td id="ChuSo">@Html.TextBox("txtSoLuongNguoiLon", @item._SoLuongNguoiLon)</td>
+                <td id="ChuSo">@Html.TextBox("txtSoLuongTreEm", @item._SoLuongTreEm)</td>
+                <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                <td id="TenCot">
+                    <input type="submit" style="background-color:green;color:white;cursor:pointer" value="Cập nhật" /><br />
+                </td>
+                <td id="TenCot" style="color:red;">
+                    @Html.ActionLink("Xóa", "XoaGioHang", new { @__MaChuyenBay = item._MaChuyenBay })
+                </td>
 
-                }
-            </tr>
+            }
+        </tr>
         }
         <tr>
             <td colspan="6" id="TenCot" style="color:green;">

@@ -33,7 +33,7 @@ namespace Website_BanVeMayBay.Models
             [DataType(DataType.Date)]
             public DateTime? ThoiGianDi { get; set; }
 
-            [Display(Name = "Thời gian đến")]
+            [Display(Name = "Thời gian về")]
             //[Required(ErrorMessage = "{0} không được để trống")]
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
             [DataType(DataType.Date)]
@@ -55,6 +55,10 @@ namespace Website_BanVeMayBay.Models
             [Display(Name = "Sân bay đi")]
             //[Required(ErrorMessage = "{0} không được để trống")]
             public int? SanBayDi { get; set; }
+
+            [Display(Name = "Loại vé")]
+            //[Required(ErrorMessage = "{0} không được để trống")]
+            public int? LoaiChuyenBay { get; set; }
         }
     }
 }

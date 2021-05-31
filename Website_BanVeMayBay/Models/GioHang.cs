@@ -14,10 +14,11 @@ namespace Website_BanVeMayBay.Models
         public double _DonGia { get; set; }
         public DateTime? _NgayDi { get; set; }
         public DateTime? _NgayDen { get; set; }
-        public int _SoLuong { get; set; }
+        public int _SoLuongNguoiLon { get; set; }
+        public int _SoLuongTreEm { get; set; }
         public double _ThanhTien
         {
-            get { return _SoLuong * _DonGia; }
+            get { return (_SoLuongNguoiLon + _SoLuongTreEm) * _DonGia; }
         }
         public GioHang(int _MaChuyenBay)
         {
@@ -25,9 +26,12 @@ namespace Website_BanVeMayBay.Models
             ChuyenBay cb = db.ChuyenBays.Single(n => n.MaChuyenBay == _MaChuyenBay);
             _AnhBia = cb.AnhBia;
             _NgayDi = cb.ThoiGianDi;
-            _NgayDen = cb.ThoiGianDen;
+            if (cb.ThoiGianDen == null)
+                _NgayDen = null;
+            else
+                _NgayDen = cb.ThoiGianDen;
             _DonGia = Convert.ToDouble(cb.GiaBan);
-            _SoLuong = 1;
+            _SoLuongNguoiLon = 1;
         }
     }
 }

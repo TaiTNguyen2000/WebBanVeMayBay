@@ -21,10 +21,13 @@ namespace Website_BanVeMayBay.Models
 
         [Display(Name = "Mã chuyến bay")]
         public int MaChuyenBay { get; set; }
-        
 
-        [Display(Name = "Số lượng khách")]
-        public int? SoLuong { get; set; }
+
+        [Display(Name = "Số lượng người lớn")]
+        public int? SoLuongNguoiLon { get; set; }
+
+        [Display(Name = "Số lượng trẻ em")]
+        public int? SoLuongTreEm { get; set; }
 
         [StringLength(10)]
         [Display(Name = "Đơn giá")]

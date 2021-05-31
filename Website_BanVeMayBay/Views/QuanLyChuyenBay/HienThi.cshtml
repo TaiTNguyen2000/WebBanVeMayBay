@@ -11,12 +11,12 @@
     <hr />
     <dl class="dl-horizontal">
         @*<dt>
-                @Html.DisplayNameFor(model => model.TenSach)
-            </dt>*@
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>*@
 
         @*<dd>
-                @Html.DisplayFor(model => model.TenSach)
-            </dd>*@
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.AnhBia)
@@ -70,9 +70,18 @@
             @Html.DisplayNameFor(model => model.ThoiGianDen)
         </dt>
 
+        
+
+        @if (Model.ThoiGianDen != null)
+        {
         <dd>
             @Model.ThoiGianDen.Value.ToString("dd/MM/yyyy")
         </dd>
+        }
+        else
+        {
+            <dd></dd>
+        }
     </dl>
 </div>
 

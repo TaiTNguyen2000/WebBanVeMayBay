@@ -43,7 +43,7 @@ namespace Website_BanVeMayBay.Controllers
             }
             else
             {
-                    _GioHang._SoLuong++;
+                    _GioHang._SoLuongNguoiLon++;
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -60,10 +60,12 @@ namespace Website_BanVeMayBay.Controllers
             GioHang giohang = lstGioHang.SingleOrDefault(n => n._MaChuyenBay == __MaChuyenBay);
             if (giohang != null)
             {
-                int SoLuong = Convert.ToInt32(fc["txtSoLuong"].ToString());
-                if (SoLuong > 0)
+                int SoLuongNguoiLon = Convert.ToInt32(fc["txtSoLuongNguoiLon"].ToString());
+                int SoLuongTreEm = Convert.ToInt32(fc["txtSoLuongTreEm"].ToString());
+                if (SoLuongNguoiLon > 0)
                 {
-                        giohang._SoLuong = SoLuong;
+                        giohang._SoLuongNguoiLon = SoLuongNguoiLon;
+                    giohang._SoLuongTreEm = SoLuongTreEm;
                 }
                 else
                 {
@@ -119,7 +121,7 @@ namespace Website_BanVeMayBay.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                _TongsoLuong = lstGioHang.Sum(n => n._SoLuong);
+                _TongsoLuong = lstGioHang.Sum(n => n._SoLuongNguoiLon + n._SoLuongTreEm);
             }
             return _TongsoLuong;
         }
@@ -189,7 +191,8 @@ namespace Website_BanVeMayBay.Controllers
                 ChiTietDonHang ctdh = new ChiTietDonHang();
                 ctdh.MaDonHang = dh.MaDonHang;
                 ctdh.MaChuyenBay = item._MaChuyenBay;
-                ctdh.SoLuong = item._SoLuong;
+                ctdh.SoLuongNguoiLon = item._SoLuongNguoiLon;
+                ctdh.SoLuongTreEm = item._SoLuongTreEm;
                 ctdh.DonGia = item._DonGia.ToString();
                 db.ChiTietDonHangs.Add(ctdh);
 

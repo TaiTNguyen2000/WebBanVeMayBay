@@ -30,6 +30,7 @@ namespace Website_BanVeMayBay.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
+            ViewBag.LoaiVe = cb.LoaiChuyenBay;
             ViewBag.TenHangHangKhong = db.HangHangKhongs.Single(n => n.MaHangHangKhong == cb.MaHangHangKhong).TenHangHangKhong;
             ViewBag.SanBayDi = db.SanBays.SingleOrDefault(n => n.MaSanBay == cb.SanBayDi).TenSanBay;
             ViewBag.SanBayDen = db.SanBays.SingleOrDefault(n => n.MaSanBay == cb.SanBayDen).TenSanBay;
