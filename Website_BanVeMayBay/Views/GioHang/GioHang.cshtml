@@ -6,52 +6,57 @@
     Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
 }
 <div id="divGioHang">
-    @using (Html.BeginForm("HoaDon", "GioHang"))
-    {
-        <table border="1" cellpadding="2" cellspacing="15" width="1000" height="400">
-            <tr>
-                @*<td>Tên sách</td>
-        <td>Ảnh bìa</td>*@
-                <td id="TenCot">Đơn giá</td>
-                <td id="TenCot">Số người lớn</td>
-                <td id="TenCot">Số trẻ em</td>
-                <td id="TenCot">Thành tiền</td>
-                <td id="TenCot">Ngày đi</td>
-                <td id="TenCot">Ngày về</td>
-            </tr>
-            @foreach (var item in Model)
+    @*@using (Html.BeginForm("HoaDon", "GioHang"))*@
+    
+    <table border="1" cellpadding="2" cellspacing="15" width="1000" height="400">
+        <tr>
+            <td id="TenCot">Đơn giá</td>
+            <td id="TenCot">Số người lớn</td>
+            <td id="TenCot">Số trẻ em</td>
+            <td id="TenCot">Thành tiền</td>
+            <td id="TenCot">Ngày đi</td>
+            <td id="TenCot">Ngày về</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("NhapThongTin", "GioHang", new { @__MaChuyenBay = item._MaChuyenBay }, FormMethod.Post))
             {
-            <tr>
-                @*<td>@item._TenSach</td>
-        <td><a href="@Url.Action("XemChiTiet", "Sach", new { @_MaSach=item._MaSach})"><img src="@Url.Content("~/HinhAnhAirline/"+@item._AnhBia)" width="100" height="150" /></a></td>*@
-                <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
-                <td id="ChuSo"><a href="@Url.Action("SuaGioHang","GioHang")">@item._SoLuongNguoiLon (Nhấn vào để sửa)</a></td>
-                <td id="ChuSo"><a href="@Url.Action("SuaGioHang","GioHang")">@item._SoLuongTreEm (Nhấn vào để sửa)</a></td>
-                <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
-                <td id="ChuSo">@item._NgayDi.Value.ToString("dd/MM/yyyy")</td>
-                @if (item._NgayDen == null)
-                {
-                    <td id="ChuSo"></td>
-                }
-                else
-                {
-                    <td id="ChuSo">@item._NgayDen.Value.ToString("dd/MM/yyyy")</td>
-                }
-            </tr>
+                <tr>
+                    <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+                    <td id="ChuSo"><a href="@Url.Action("SuaGioHang", "GioHang")">@item._SoLuongNguoiLon (Nhấn vào để sửa)</a></td>
+                    <td id="ChuSo"><a href="@Url.Action("SuaGioHang", "GioHang")">@item._SoLuongTreEm (Nhấn vào để sửa)</a></td>
+                    <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                    <td id="ChuSo">@item._NgayDi.Value.ToString("dd/MM/yyyy")</td>
+                    @if (item._NgayDen == null)
+                    {
+                        <td id="ChuSo"></td>
+                    }
+                    else
+                    {
+                        <td id="ChuSo">@item._NgayDen.Value.ToString("dd/MM/yyyy")</td>
+                    }
+                </tr>
+                <td colspan="6" id="TenCot">
+                    <input type="submit" style="background-color:green;color:white;font-size:12pt;cursor:pointer" value="Nhập thông tin" />
+                    @*<a style="background-color:green;color:white;font-size:12pt;cursor:pointer" href="@Url.Action("NhapThongTin","GioHang")">Nhập thông tin</a>*@
+
+
+                </td>
             }
+        }
             <tr>
                 <td colspan="6" id="ChuSo">
                     Tổng tiền: @Html.Action("GioHangTongTien", "GioHang")
                 </td>
             </tr>
-            <tr>
+            @*<tr>
                 <td colspan="6" id="TenCot">
-                    <input type="submit" style="background-color:green;color:white;font-size:12pt;cursor:pointer" value="Xác nhận" />
-
+                    <input type="submit" style="background-color:green;color:white;font-size:12pt;cursor:pointer" value="Nhập thông tin" />
+                    @*<a style="background-color:green;color:white;font-size:12pt;cursor:pointer" href="@Url.Action("NhapThongTin","GioHang")">Nhập thông tin</a>
 
 
                 </td>
-            </tr>
+            </tr>*@
         </table>
-    }
 </div>

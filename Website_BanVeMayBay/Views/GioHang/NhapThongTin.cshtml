@@ -1,0 +1,31 @@
+﻿
+@using Website_BanVeMayBay.Models;
+@model List<GioHang>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    /**/
+
+    ViewBag.Title = "Sửa Giỏ hàng";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("CapNhatTen", "GioHang", new { @__MaChuyenBay = item._MaChuyenBay }))
+    {
+        for (int i = 0; i < ViewBag.SoLuongNguoiLon; i++)
+        {
+
+            <td>Nhập tên người lớn @(i + 1)</td>
+            <td id="">@Html.TextBox("txtTenNguoiLon" + i)</td>
+        }
+        for (int j = 0; j < ViewBag.SoLuongTreEm; j++)
+        {
+
+            <td>Nhập tên trẻ em @(j + 1)</td>
+            <td id="ChuSo">@Html.TextBox("txtTenTreEm" + j)</td>
+        }
+        <input type="submit" style="background-color:green;color:white;cursor:pointer" value="Xác nhận" /><br />
+    }
+}
+
+

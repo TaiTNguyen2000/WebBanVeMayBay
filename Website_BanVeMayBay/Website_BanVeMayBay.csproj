@@ -1308,6 +1308,7 @@
     <Content Include="Views\QuanLyTinTuc\Index.cshtml" />
     <Content Include="Views\QuanLyTinTuc\ThemMoi.cshtml" />
     <Content Include="Views\QuanLyTinTuc\Xoa.cshtml" />
+    <Content Include="Views\GioHang\NhapThongTin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

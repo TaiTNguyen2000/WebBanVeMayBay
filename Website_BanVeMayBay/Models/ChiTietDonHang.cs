@@ -29,6 +29,12 @@ namespace Website_BanVeMayBay.Models
         [Display(Name = "Số lượng trẻ em")]
         public int? SoLuongTreEm { get; set; }
 
+        [Display(Name = "Danh sách người lớn")]
+        public string DanhSachNguoiLon { get; set; }
+
+        [Display(Name = "Danh sách trẻ em")]
+        public string DanhSachTreEm { get; set; }
+
         [StringLength(10)]
         [Display(Name = "Đơn giá")]
         public string DonGia { get; set; }

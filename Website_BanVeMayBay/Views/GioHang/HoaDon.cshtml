@@ -8,7 +8,7 @@
 <div id="divGioHang">
     <table border="1" cellpadding="2" cellspacing="15" width="1000" height="400">
         <tr>
-            <td id="ChuSo">Thông tin Khách hàng :</td>
+            <td id="ChuSo">Thông tin Người đặt :</td>
         </tr>
         <tr>
             <td id="ChuSo">Họ và Tên :</td>
@@ -36,7 +36,9 @@
         <tr>
             <td id="TenCot">Đơn giá</td>
             <td id="TenCot">Số người lớn</td>
+            <td id="TenCot">Danh sách người lớn</td>
             <td id="TenCot">Số trẻ em</td>
+            <td id="TenCot">Danh sách trẻ em</td>
             <td id="TenCot">Thành tiền</td>
             <td id="TenCot">Ngày đi</td>
             <td id="TenCot">Ngày về</td>
@@ -46,7 +48,9 @@
         <tr>
             <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
             <td id="ChuSo">@item._SoLuongNguoiLon</td>
+            <td id="ChuSo">@item._DanhSachNguoiLon</td>
             <td id="ChuSo">@item._SoLuongTreEm</td>
+            <td id="ChuSo">@item._DanhSachTreEm</td>
             <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
             <td id="ChuSo">@item._NgayDi.Value.ToString("dd/MM/yyyy")</td>
             @if (item._NgayDen == null)

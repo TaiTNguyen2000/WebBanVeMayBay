@@ -84,6 +84,54 @@ namespace Website_BanVeMayBay.Controllers
             return RedirectToAction("GioHang");
         }
 
+        public ActionResult CapNhatTen(int __MaChuyenBay, FormCollection fc)
+        {
+            ChuyenBay cb = db.ChuyenBays.SingleOrDefault(n => n.MaChuyenBay == __MaChuyenBay);
+            if (cb == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            GioHang giohang = lstGioHang.SingleOrDefault(n => n._MaChuyenBay == __MaChuyenBay);
+            if (giohang != null)
+            {
+                string DSNguoiLon  = "";
+                string DSTreEm = "";
+                for (int i = 0; i < giohang._SoLuongNguoiLon; i++)
+                {
+                    DSNguoiLon += fc["txtTenNguoiLon" + i].ToString() + ", ";
+                }
+                for (int i = 0; i < giohang._SoLuongTreEm; i++)
+                {
+                    DSTreEm += fc["txtTenTreEm" + i].ToString() + ", ";
+                }
+                giohang._DanhSachNguoiLon = DSNguoiLon;
+                giohang._DanhSachTreEm = DSTreEm;
+            }
+            return RedirectToAction("HoaDon");
+        }
+
+        [HttpPost]
+        public ActionResult NhapThongTin(int __MaChuyenBay)
+        {
+            ChuyenBay cb = db.ChuyenBays.SingleOrDefault(n => n.MaChuyenBay == __MaChuyenBay);
+            if (cb == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            GioHang giohang = lstGioHang.SingleOrDefault(n => n._MaChuyenBay == __MaChuyenBay);
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.SoLuongNguoiLon = giohang._SoLuongNguoiLon;
+            ViewBag.SoLuongTreEm = giohang._SoLuongTreEm;
+            return View(lstGioHang);
+        }
+
         public ActionResult XoaGioHang(int __MaChuyenBay)
         {
             ChuyenBay cb = db.ChuyenBays.SingleOrDefault(n => n.MaChuyenBay == __MaChuyenBay);
@@ -180,7 +228,7 @@ namespace Website_BanVeMayBay.Controllers
             NguoiDung user = (NguoiDung)Session["TaiKhoan"];
             List<GioHang> gh = LayGioHang();
             dh.MaNguoiDung = user.MaNguoiDung;
-            dh.DaThanhToan = Convert.ToInt32(TongTien());
+            dh.ThanhTien = Convert.ToInt32(TongTien());
             dh.TinhTrang = 0;
             dh.NgayDat = DateTime.Now;
             //dh.NgayGiao = DateTime.Now;
@@ -192,7 +240,9 @@ namespace Website_BanVeMayBay.Controllers
                 ctdh.MaDonHang = dh.MaDonHang;
                 ctdh.MaChuyenBay = item._MaChuyenBay;
                 ctdh.SoLuongNguoiLon = item._SoLuongNguoiLon;
+                ctdh.DanhSachNguoiLon = item._DanhSachNguoiLon;
                 ctdh.SoLuongTreEm = item._SoLuongTreEm;
+                ctdh.DanhSachTreEm = item._DanhSachTreEm;
                 ctdh.DonGia = item._DonGia.ToString();
                 db.ChiTietDonHangs.Add(ctdh);
 

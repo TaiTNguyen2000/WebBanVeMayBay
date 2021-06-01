@@ -28,6 +28,12 @@ namespace Website_BanVeMayBay.Models
             [Display(Name = "Số lượng trẻ em")]
             public int? SoLuongTreEm { get; set; }
 
+            [Display(Name = "Danh sách người lớn")]
+            public string DanhSachNguoiLon { get; set; }
+
+            [Display(Name = "Danh sách trẻ em")]
+            public string DanhSachTreEm { get; set; }
+
             [Display(Name = "Mã chuyến bay")]
             public int? MaChuyenBay { get; set; }
         }

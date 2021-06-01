@@ -21,7 +21,7 @@ namespace Website_BanVeMayBay.Models
         [Key]
         public int MaDonHang { get; set; }
 
-        public int? DaThanhToan { get; set; }
+        public int? ThanhTien { get; set; }
 
         public int? TinhTrang { get; set; }
 

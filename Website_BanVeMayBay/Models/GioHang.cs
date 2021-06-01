@@ -16,9 +16,11 @@ namespace Website_BanVeMayBay.Models
         public DateTime? _NgayDen { get; set; }
         public int _SoLuongNguoiLon { get; set; }
         public int _SoLuongTreEm { get; set; }
+        public string _DanhSachNguoiLon { get; set; }
+        public string _DanhSachTreEm { get; set; }
         public double _ThanhTien
         {
-            get { return (_SoLuongNguoiLon + _SoLuongTreEm) * _DonGia; }
+            get { return _SoLuongNguoiLon * _DonGia + _SoLuongTreEm * (_DonGia * 0.75); }
         }
         public GioHang(int _MaChuyenBay)
         {

@@ -21,7 +21,7 @@
             Chi tiết đơn hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().DaThanhToan)
+            @Html.DisplayNameFor(model => model.First().ThanhTien)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.First().TinhTrang)
@@ -47,7 +47,7 @@
                 @Html.ActionLink("Xem chi tiết đơn hàng", "ChiTiet", new { @_MaDonHang = item.MaDonHang })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DaThanhToan)
+                @Html.DisplayFor(modelItem => item.ThanhTien)
             </td>
             @if (item.TinhTrang == 0)
             {

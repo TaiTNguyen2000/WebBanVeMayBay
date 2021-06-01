@@ -18,7 +18,7 @@ namespace Website_BanVeMayBay.Models
 
             [Display(Name = "Tổng tiền")]
             [DisplayFormat(DataFormatString = "{0:#,##0 vnđ}")]
-            public int? DaThanhToan { get; set; }
+            public int? ThanhTien { get; set; }
 
             [Display(Name = "Tình trạng")]
             [Range(0, 1, ErrorMessage = "{0} phải thuộc [0, 1] 0: Chưa xong, 1: Hoàn thành")]
