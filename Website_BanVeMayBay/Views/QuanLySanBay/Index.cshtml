@@ -14,6 +14,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.First().MaSanBay)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.First().TenSanBay)
         </th>
         <th>
@@ -26,17 +29,20 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenSanBay)
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaSanBay = item.MaSanBay })
-            </td>
-            <td>
-                @Html.ActionLink("Xóa", "Xoa", new { @_MaSanBay = item.MaSanBay })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSanBay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSanBay)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "ChinhSua", new { @_MaSanBay = item.MaSanBay })
+        </td>
+        <td>
+            @Html.ActionLink("Xóa", "Xoa", new { @_MaSanBay = item.MaSanBay })
+        </td>
+    </tr>
     }
 
 </table>

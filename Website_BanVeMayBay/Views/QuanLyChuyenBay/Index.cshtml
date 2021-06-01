@@ -35,6 +35,9 @@
             @Html.DisplayNameFor(model => model.First().ThoiGianDen)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.First().LoaiChuyenBay)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.First().CoTheDat)
         </th>
         <th>
@@ -77,13 +80,29 @@
         }
         else
         {
+            <td></td>
+        }
+        @if (item.LoaiChuyenBay == 0)
+        {
             <td>
-                
+                Một chiều
             </td>
         }
-        <td>
-            @Html.DisplayFor(modelItem => item.CoTheDat)
-        </td>
+        else
+        {
+            <td>
+                Khứ hồi
+            </td>
+        }
+        @if(item.CoTheDat == 0)
+        {
+            <td>Hết chỗ</td>
+        } else
+        {
+            <td>
+                Còn chỗ
+            </td>
+        }
         <td>
             @Html.ActionLink("Chi tiết", "HienThi", new { @_MaChuyenBay = item.MaChuyenBay })
         </td>

@@ -12,6 +12,7 @@ namespace Website_BanVeMayBay.Models
     {
         internal sealed class SanBayMetadata
         {
+            [Display(Name = "Mã Sân bay")]
             [Key]
             public int MaSanBay { get; set; }
 
